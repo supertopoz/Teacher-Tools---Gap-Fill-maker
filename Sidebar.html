@@ -1,0 +1,121 @@
+<head>
+	<base target="_top"><?!= HtmlService.createHtmlOutputFromFile('Stylesheet').getContent(); ?>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/dropdown.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/grid.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/segment.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/button.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/icon.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/header.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/label.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/message.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/transition.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/image.min.css" rel="stylesheet" type="text/css">
+       	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/list.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/divider.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/checkbox.min.css" rel="stylesheet" type="text/css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/components/input.min.css" rel="stylesheet" type="text/css"><!-- The CSS package above applies Google styling to buttons and other elements. -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+   
+	<title></title>
+    
+</head>
+	<div class="ui header">
+		Gap Fill
+	</div>
+	<div class="ui center aligned segment">
+		<a class="ui mini button green" id="addGaps">Add Gaps</a><br>
+		<br>
+		<a class="ui mini button red" id="removeGaps">Remove All Gaps</a><br>
+		<br>
+		<a class="ui mini button" id="addWords">Add words in order at bottom</a><br>
+		<br>
+		<a class="ui mini button" id="addWordsRandom">Add words randomly at bottom</a>
+	</div>
+	<div class="ui segment">
+           
+		<div class="ui list">
+			<div class="item">
+				<div class="content">
+					1.Use mouse to highlight text
+				</div>
+			</div>
+			<div class="item">
+				<div class="content">
+					2.Click "text color" icon
+				</div>
+			</div>
+			<div class="item">
+				<div class="content">
+					3.Click "Highlight"
+				</div>
+			</div>
+			<div class="item">
+				<div class="content">
+					4.Click "Yellow"
+				</div>
+			</div>
+			<div class="item">
+			<div class="content">
+				5.Use app buttons above
+			</div>
+            <br>
+            <br>
+            	<div class="ui image">
+            <img height="182" src="https://c8.staticflickr.com/1/279/32057787591_58eb5e8de5_n.jpg" width="320"></div>
+            </div>
+		</div>
+	</div>
+ 
+    
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/accordion.min.js"></script>
+<script>
+function removeLoader(){
+$('.loading').removeClass('loading');
+}
+
+$(document).on('click', '#addGaps', function(){
+  //Background is first;
+   $(this).addClass('loading');
+  var colors = ['#E8E8EE','#E8E8EE']
+  var increaseFont = true;
+  google.script.run.withSuccessHandler(removeLoader).findHighlighted(colors,increaseFont);
+
+});
+
+$(document).on('click', '#removeGaps', function(){
+   $(this).addClass('loading');
+  var colors = ['#ffffff','#000000']
+//  var increaseFont = false;
+  google.script.run.withSuccessHandler(removeLoader).findHighlighted(colors);
+
+});
+
+$(document).on('click', '#addWords', function(){
+  var colors ="";
+     $(this).addClass('loading');
+//  var shuffleState = false;
+  google.script.run.withSuccessHandler(removeLoader).getWords(colors);
+
+});
+
+$(document).on('click', '#addWordsRandom', function(){
+  var colors ="";
+     $(this).addClass('loading');
+  var shuffleState = true;
+  google.script.run.withSuccessHandler(removeLoader).getWords(colors,shuffleState);
+
+});
+
+
+
+
+
+</script>
+
+
+

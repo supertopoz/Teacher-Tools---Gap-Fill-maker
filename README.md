@@ -1,6 +1,8 @@
 # Teacher-Tools---Gap-Fill-maker
 This code produces a side bar on a Google document that allows text to be highlighted and then generates Gaps automatically. 
 
+![capture](https://user-images.githubusercontent.com/13721960/35702711-27c3049c-07dd-11e8-8eac-d8ff1eb839b7.PNG)
+
 ## Getting Started
 
 

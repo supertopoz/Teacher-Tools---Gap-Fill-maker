@@ -1,4 +1,3 @@
-
 function onOpen(e) {
   DocumentApp.getUi().createAddonMenu()
       .addItem('Teacher Tools', 'showSidebar')
@@ -23,7 +22,7 @@ function showSidebar() {
 }
 
 function findHighlighted(colors) {
-//  var colors = ['#E8E8EE','#E8E8EE']
+  //var colors = ['#E8E8EE','#E8E8EE']
   if (colors !== ""){
   var backGroundcolor = colors[0];
   var textColor = colors[1];
@@ -42,11 +41,7 @@ function findHighlighted(colors) {
   }
   // Set background
   if (colors !== ""){
-//   for (char = 0, len = bodyString.length; char < len; char++) {
    if (bodyTextElement.getBackgroundColor(char) !== null && bodyTextElement.getBackgroundColor(char) !== '#ffffff' ){ // Is any hightlight
-//      var size = bodyTextElement.getFontSize(char);
-//      Logger.log(bodyTextElement.getBackgroundColor(char))
-//      Logger.log(size);
       bodyTextElement.setForegroundColor(char,char, textColor).setBackgroundColor(char,char, backGroundcolor).setFontSize(char,char, 12)
   }  
   }
